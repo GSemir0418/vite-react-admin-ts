@@ -159,3 +159,7 @@ export default {
 解决 less 报错：Unknown at rule @tailwindless(unknownAtRules)
 setting 搜索 unknown
 找到 LESS>Lint: Unknown At Rules，设置为 ignore 即可
+
+安装 zustand
+> https://github.com/pmndrs/zustand
+pnpm add zustand
