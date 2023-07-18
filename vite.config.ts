@@ -8,4 +8,19 @@ export default defineConfig({
   resolve: {
     alias: { '@': path.resolve(__dirname, './src/') },
   },
+  server: {
+    open: true,
+    proxy: {
+      '/dev': {
+        target: 'http://10.30.20.95:9725',
+        changeOrigin: true,
+        secure: false,
+        rewrite: path => path.replace(/^\/dev/, ''),
+      },
+    },
+  },
+  build: {
+    assetsDir: '',
+  },
+  base: '/scmbps',
 })
