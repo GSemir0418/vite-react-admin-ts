@@ -134,3 +134,28 @@ pnpm add @ant-design/pro-components
 axios 封装
 pnpm add axios
 主要对于请求拦截（权限请求头）、响应拦截（导出excel）、请求方法（GET，POST）、错误处理等功能进行封装
+
+tailwindcss
+> https://tailwindcss.com/docs/guides/vite
+pnpm add -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+安装vscode插件 bradlc.vscode-tailwindcss
+解决 less 报错：Unknown at rule @tailwindless(unknownAtRules)
+setting 搜索 unknown
+找到 LESS>Lint: Unknown At Rules，设置为 ignore 即可

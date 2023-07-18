@@ -1,5 +1,6 @@
 import { Outlet, createHashRouter } from 'react-router-dom'
 import { Button } from 'antd'
+import { MaterialPage } from '@/pages/material'
 
 export const routes = [
   {
@@ -10,7 +11,7 @@ export const routes = [
         path: '11',
         children: [
           { path: '22', element: <><Button>11</Button></> },
-          { path: '33', element: <>33</> },
+          { path: '33', element: <MaterialPage/> },
         ],
       },
     ],
