@@ -52,3 +52,14 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 less
 pnpm add less
 
+alias
+pnpm add -D @types/node
+"baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+
+    resolve: {
+    alias: { '@': path.resolve(__dirname, './src/') },
+  },
+
