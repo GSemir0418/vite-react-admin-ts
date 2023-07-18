@@ -1,6 +1,6 @@
 import { Outlet, createHashRouter } from 'react-router-dom'
 
-export const router = createHashRouter([
+export const routes = [
   {
     path: '/',
     element: <div>MainLayout <Outlet/></div>,
@@ -14,4 +14,6 @@ export const router = createHashRouter([
       },
     ],
   },
-])
+]
+
+export const router = createHashRouter(routes)
