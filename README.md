@@ -49,3 +49,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   </React.StrictMode>,
 )
 
+less
+pnpm add less
+
