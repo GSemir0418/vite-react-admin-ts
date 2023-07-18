@@ -16,3 +16,36 @@ parserOptions: {
   "source.fixAll.eslint": true,
   "source.fixAll": true
 },
+
+react router 6
+> https://reactrouter.com/en/main/start/tutorial
+pnpm add react-router-dom
+创建router
+export const router = createHashRouter([
+  {
+    path: '/',
+    element: <div>MainLayout <Outlet/></div>,
+    children: [
+      {
+        path: '11',
+        children: [
+          { path: '22', element: <>22</> },
+          { path: '33', element: <>33</> },
+        ],
+      },
+    ],
+  },
+])
+引入 router
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { RouterProvider } from 'react-router-dom'
+import { router } from './routes/router.tsx'
+import './index.css'
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <RouterProvider router={router}/>
+  </React.StrictMode>,
+)
+
