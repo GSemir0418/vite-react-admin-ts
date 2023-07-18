@@ -126,3 +126,11 @@ export default function generateHtmlWithRoutes(options: Options = {}) {
     },
   }
 }
+
+antd
+pnpm add antd
+pnpm add @ant-design/pro-components
+
+axios 封装
+pnpm add axios
+主要对于请求拦截（权限请求头）、响应拦截（导出excel）、请求方法（GET，POST）、错误处理等功能进行封装

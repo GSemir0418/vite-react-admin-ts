@@ -1,4 +1,5 @@
 import { Outlet, createHashRouter } from 'react-router-dom'
+import { Button } from 'antd'
 
 export const routes = [
   {
@@ -8,7 +9,7 @@ export const routes = [
       {
         path: '11',
         children: [
-          { path: '22', element: <>22</> },
+          { path: '22', element: <><Button>11</Button></> },
           { path: '33', element: <>33</> },
         ],
       },
