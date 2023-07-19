@@ -27,7 +27,7 @@ module.exports = {
 }
 ```
 
-## 路由
+### 路由
 > https://reactrouter.com/en/main/start/tutorial
 `pnpm add react-router-dom`
 - 创建router
@@ -63,10 +63,10 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 )
 ```
 
-## less
+### less
 `pnpm add less`
 
-## alias
+### alias
 `pnpm add -D @types/node`
 ```json
 // tsconfig.json
@@ -81,7 +81,7 @@ resolve: {
 },
 ```
 
-## vite plugin
+### vite plugin
 平台要求前端打包产物要根据路由结构生成文件夹及 index.html
 可以用脚本做，也可以自己写一个 vite 插件，在 writeBundle 时运行，读取路由列表，利用 node 生成各路由的 html 文件
 ```json
@@ -151,15 +151,15 @@ export default function generateHtmlWithRoutes(options: Options = {}) {
 }
 ```
 
-## antd
+### antd
 `pnpm add antd`
 `pnpm add @ant-design/pro-components`
 
-## axios 封装
+### axios 封装
 `pnpm add axios`
 主要对于请求拦截（权限请求头）、响应拦截（导出excel）、请求方法（GET，POST）、错误处理等功能进行封装
 
-## tailwindcss
+### tailwindcss
 > https://tailwindcss.com/docs/guides/vite
 `pnpm add -D tailwindcss postcss autoprefixer`
 `npx tailwindcss init -p`
@@ -195,13 +195,13 @@ corePlugins: {
 },
 ```
 
-## zustand
+### zustand
 > https://github.com/pmndrs/zustand
 `pnpm add zustand`
 
 
 
-## 远程部署脚本
+### 远程部署脚本
 ```bat
 :: 设置编码格式为utf-8 否则中文乱码
 chcp 65001
@@ -227,7 +227,7 @@ xcopy /s /e /i /y ".\dist" "\\10.30.20.87\C$\ADP\bap-server\bap-workspace\bap-st
 net use \\10.30.20.87\C$ /delete
 ```
 
-## 安装依赖
+### 安装依赖
 `pnpm install --frozen-lockfile`
 防止更新时修改lock文件
 报错说明pnpm版本不匹配
