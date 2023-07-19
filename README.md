@@ -163,3 +163,14 @@ setting 搜索 unknown
 安装 zustand
 > https://github.com/pmndrs/zustand
 pnpm add zustand
+
+安装依赖
+pnpm install --frozen-lockfile
+防止更新时修改lock文件
+报错说明pnpm版本不匹配
+
+解决 tailwind css 与 antd 样式冲突，导致 Button 背景透明的 bug
+因为 tailwind css button 默认是背景透明的
+corePlugins: {
+preflight: false,
+},
