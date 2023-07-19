@@ -1,26 +1,37 @@
+### 创建项目
 > https://cn.vitejs.dev/guide/
-创建项目
-pnpm create vite
+`pnpm create vite`
 
-配置eslint
+### 配置eslint
 > https://github.com/antfu/eslint-config
-pnpm add -D @antfu/eslint-config
-修改eslintrc
-extends: '@antfu',
-parserOptions: {
-  ...
-  // project: true,
-},
-安装 eslint 插件，vscode配置
-"editor.codeActionsOnSave": {
-  "source.fixAll.eslint": true,
-  "source.fixAll": true
-},
+`pnpm add -D @antfu/eslint-config`
+- 修改 eslintrc
 
-react router 6
+```cjs
+module.exports = {
+  extends: '@antfu',
+  parserOptions: {
+  // ...
+  // project: true,
+  },
+// ...
+}
+```
+- 安装 eslint 插件，vscode配置
+```json
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll": true
+  },
+}
+```
+
+## 路由
 > https://reactrouter.com/en/main/start/tutorial
-pnpm add react-router-dom
-创建router
+`pnpm add react-router-dom`
+- 创建router
+```tsx
 export const router = createHashRouter([
   {
     path: '/',
@@ -36,7 +47,9 @@ export const router = createHashRouter([
     ],
   },
 ])
-引入 router
+```
+- 引入 router
+``` tsx
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'
@@ -48,29 +61,39 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <RouterProvider router={router}/>
   </React.StrictMode>,
 )
+```
 
-less
-pnpm add less
+## less
+`pnpm add less`
 
-alias
-pnpm add -D @types/node
+## alias
+`pnpm add -D @types/node`
+```json
+// tsconfig.json
 "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    },
+"paths": {
+  "@/*": ["src/*"]
+},
+```
+```ts
+resolve: {
+  alias: { '@': path.resolve(__dirname, './src/') },
+},
+```
 
-    resolve: {
-    alias: { '@': path.resolve(__dirname, './src/') },
-  },
-
-vite plugin
-平台要求前端打包产物要根据路由结构生成文件夹及index.html
-可以用脚本做，也可以自己写一个vite插件，在writeBundle时运行，读取路由列表，利用node生成各路由的html文件
+## vite plugin
+平台要求前端打包产物要根据路由结构生成文件夹及 index.html
+可以用脚本做，也可以自己写一个 vite 插件，在 writeBundle 时运行，读取路由列表，利用 node 生成各路由的 html 文件
+```json
+// tsconfig.node.json
 "include": ["vite.config.ts", "src/plugins/*"]
-
- plugins: [react(), generateHtmlWithRoutes()],
-
- import fs from 'node:fs'
+```
+```ts
+// vite.config.ts
+plugins: [react(), generateHtmlWithRoutes()],
+```
+```ts
+import fs from 'node:fs'
 import path from 'node:path'
 
 // 暂时手动维护一份路由表
@@ -126,19 +149,21 @@ export default function generateHtmlWithRoutes(options: Options = {}) {
     },
   }
 }
+```
 
-antd
-pnpm add antd
-pnpm add @ant-design/pro-components
+## antd
+`pnpm add antd`
+`pnpm add @ant-design/pro-components`
 
-axios 封装
-pnpm add axios
+## axios 封装
+`pnpm add axios`
 主要对于请求拦截（权限请求头）、响应拦截（导出excel）、请求方法（GET，POST）、错误处理等功能进行封装
 
-tailwindcss
+## tailwindcss
 > https://tailwindcss.com/docs/guides/vite
-pnpm add -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p
+`pnpm add -D tailwindcss postcss autoprefixer`
+`npx tailwindcss init -p`
+```js
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -150,32 +175,34 @@ export default {
   },
   plugins: [],
 }
-
+```
+```less
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-安装vscode插件 bradlc.vscode-tailwindcss
-解决 less 报错：Unknown at rule @tailwindless(unknownAtRules)
+```
+- 安装vscode插件 bradlc.vscode-tailwindcss
+- 解决 less 报错：Unknown at rule @tailwindless(unknownAtRules)
 setting 搜索 unknown
 找到 LESS>Lint: Unknown At Rules，设置为 ignore 即可
 
-安装 zustand
-> https://github.com/pmndrs/zustand
-pnpm add zustand
-
-安装依赖
-pnpm install --frozen-lockfile
-防止更新时修改lock文件
-报错说明pnpm版本不匹配
-
-解决 tailwind css 与 antd 样式冲突，导致 Button 背景透明的 bug
+- 解决 Button 背景透明的 bug
 因为 tailwind css button 默认是背景透明的
+```js
+// tailwind.config.js
 corePlugins: {
-preflight: false,
+  preflight: false,
 },
+```
 
-远程部署脚本
+## zustand
+> https://github.com/pmndrs/zustand
+`pnpm add zustand`
+
+
+
+## 远程部署脚本
+```bat
 :: 设置编码格式为utf-8 否则中文乱码
 chcp 65001
 :: 关闭命令回显，禁止显示批处理脚本中的命令在执行时的输出，使输出更简洁
@@ -198,3 +225,9 @@ xcopy /s /e /i /y ".\dist" "\\10.30.20.87\C$\ADP\bap-server\bap-workspace\bap-st
 
 :: 断开连接
 net use \\10.30.20.87\C$ /delete
+```
+
+## 安装依赖
+`pnpm install --frozen-lockfile`
+防止更新时修改lock文件
+报错说明pnpm版本不匹配
