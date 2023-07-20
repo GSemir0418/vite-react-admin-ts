@@ -199,7 +199,22 @@ corePlugins: {
 > https://github.com/pmndrs/zustand
 `pnpm add zustand`
 
-
+### snippets
+ctrl shift p 搜索 snippet 选择 configure user snippets 选择 typescriptreact
+```json
+{
+	"Initialize TSX Component": {
+		"prefix": "tsx",
+		"body": [
+			"interface Props {}",
+			"",
+			"export const $1: React.FC<Props> = () => {",
+  		"  return <div>$1</div>",
+			"}"
+		]
+	}
+}
+```
 
 ### 远程部署脚本
 ```bat
